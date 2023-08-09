@@ -17,7 +17,7 @@ for cliente in agenda:
     if cliente.Fone[:2] == "83":
         EscreverCliente(cliente)
     else:
-        print("Nenhum cliente encontrado")
+        print("Nenhum cliente encontrado-")
     
 
 
