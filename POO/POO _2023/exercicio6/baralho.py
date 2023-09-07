@@ -69,6 +69,12 @@ class Baralho:
         quantidade = len(self) // len(jogadores)
         for i in range(len(jogadores)):
             jogadores[i].adicionar_cartas( self.cartas[i * quantidade: i * quantidade + 1] )
+            
+            
+        
+        
+        
+        
 
 
 
