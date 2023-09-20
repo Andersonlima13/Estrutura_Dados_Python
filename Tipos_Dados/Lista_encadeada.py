@@ -21,8 +21,35 @@ class Linked_List:
     self.size = self.size + 1
 
 
-    def __len__(self):
+  def __len__(self):
       return self.size
+    
+
+    
+  def __getitem__(self,index):
+    pointer = self.head
+    for i in range(index):
+      if pointer:
+        pointer = pointer.next
+      else:
+        raise IndexError("Erro de index")
+    if pointer:
+      return pointer.data
+    raise IndexError("Erro de index")
+
+      # sobrecargas de operador 
+    
+  def __setitem__(self,index,elem):
+    pointer = self.head
+    for i in range(index):
+      if pointer:
+        pointer = pointer.next
+      else:
+        raise IndexError("Erro de index")
+    if pointer:
+      pointer.data = elem
+    else:
+      raise IndexError("Erro de index")
 
     
 
@@ -34,4 +61,4 @@ class Linked_List:
 lista = Linked_List()
 lista.append(7)
 lista.append(8)
-print(lista.size)
+print(lista[3])
