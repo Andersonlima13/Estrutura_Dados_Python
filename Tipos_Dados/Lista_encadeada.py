@@ -17,7 +17,7 @@ class Linked_List:
         pointer = pointer.next
       pointer.next = Node(elem)
     else:              # se estiver sem elementos , coloque no topo, primeira inserção
-      self.head = Node(elem) # primeiro 
+      self.head = Node(elem) # primeiro caso , onde a lista se encotra vazia
     self.size = self.size + 1
 
 
@@ -53,6 +53,7 @@ class Linked_List:
 
     #DEVOLVE O ELEMENTO , CASO EXISTA
 
+#busca o indice do elemento da lista
   def search(self, elem):
     pointer = self.head
     i = 0
@@ -63,7 +64,18 @@ class Linked_List:
       i = i + 1
     raise ValueError(f" {elem} não encontrado")
 
-    
+    #   inserindo em qualquer posição
+
+  def insert(self,index,elem ):
+    node = Node(elem)
+    if index == 0:
+      node.next = self.head
+      self.head = node
+    else:
+      pointer = self._getnode(index-1)
+      node.next = pointer.next
+      pointer.next = node
+    self._size = self._size+1
 
 
 
