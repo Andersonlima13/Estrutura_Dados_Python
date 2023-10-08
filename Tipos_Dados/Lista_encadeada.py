@@ -11,12 +11,12 @@ class Linked_List:
     self.size = 0
 
   def append(self, elem):
-    if self.head:      # se tiver elementos , adcione
+    if self.head:      # se tiver elementos , adcione // adcionando ao final da lista 
       pointer = self.head
-      while(pointer.next):
+      while(pointer.next): 
         pointer = pointer.next
       pointer.next = Node(elem)
-    else:              # se estiver sem elementos , coloque no topo
+    else:              # se estiver sem elementos , coloque no topo, primeira inserção
       self.head = Node(elem) # primeiro 
     self.size = self.size + 1
 
@@ -51,7 +51,17 @@ class Linked_List:
     else:
       raise IndexError("Erro de index")
 
-    
+    #DEVOLVE O ELEMENTO , CASO EXISTA
+
+  def search(self, elem):
+    pointer = self.head
+    i = 0
+    while (pointer):  # equanto o pointer nao é vazio
+      if pointer.data == elem:  # se o pointer for igual ao elemento buscado
+        return i  # retornamos o elemento
+      pointer = pointer.next
+      i = i + 1
+    raise ValueError(f" {elem} não encontrado")
 
     
 
