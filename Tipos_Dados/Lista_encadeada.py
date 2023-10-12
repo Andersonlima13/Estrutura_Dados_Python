@@ -10,6 +10,8 @@ class Linked_List:
     self.head = None
     self.size = 0
 
+# INSERE ELEMENTOS AO FINAL DA FILA
+
   def append(self, elem):
     if self.head:      # se tiver elementos , adcione // adcionando ao final da lista 
       pointer = self.head
@@ -25,29 +27,37 @@ class Linked_List:
       return self.size
     
 
-    
-  def __getitem__(self,index):
+# ACESSAR O VALOR DO INDEX ESCOLHIDO
+
+
+
+
+# RETORNA A POSIÇÃO DO NÓ 
+  def _getnode(self,index):
     pointer = self.head
     for i in range(index):
       if pointer:
         pointer = pointer.next
       else:
         raise IndexError("Erro de index")
+    return pointer
+    
+  def __getitem__(self,index):
+    pointer = self._getnode(index)
     if pointer:
       return pointer.data
     raise IndexError("Erro de index")
 
       # sobrecargas de operador 
+      
+
+# MODIFICAR O ELEMENTO ESCOLHENDO O INDEX
     
   def __setitem__(self,index,elem):
-    pointer = self.head
-    for i in range(index):
-      if pointer:
-        pointer = pointer.next
-      else:
-        raise IndexError("Erro de index")
+    pointer = self._getnode(index)
     if pointer:
       pointer.data = elem
+      
     else:
       raise IndexError("Erro de index")
 
@@ -64,7 +74,9 @@ class Linked_List:
       i = i + 1
     raise ValueError(f" {elem} não encontrado")
 
-    #   inserindo em qualquer posição
+
+
+#inserindo em qualquer posição
 
   def insert(self,index,elem ):
     node = Node(elem)
@@ -77,8 +89,23 @@ class Linked_List:
       pointer.next = node
     self._size = self._size+1
 
-
-
+  
+  def remove(self,elem):
+    if self.head == None:
+      raise ValueError(f"{elem} is not in list")
+    elif self.head.data == elem:
+      self.head = self.head.next
+    else:
+      ancestor = self.head
+      pointer = self.head
+      while(pointer):
+          if pointer.data == elem:
+            ancestor.next = pointer.next
+            pointer.next = None
+          ancestor = pointer
+          pointer = pointer.next
+      return True 
+    raise ValueError(f"{elem} is not in list" )
 
 lista = Linked_List()
 lista.append(7)
