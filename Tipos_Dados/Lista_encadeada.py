@@ -23,6 +23,18 @@ class Linked_List:
     self.size = self.size + 1
 
 
+# INSERE ELEMENTOS NO INICIOO DA FILA
+
+
+  def append_init(self,elem):   # A NOVA CABEÇA DA LISTA RECEBE UM NÓ 
+    if self.head:               # ENTÃO O PROXIMO DA "NOVA CABEÇA"
+      new_head = Node(elem)     # PASSA A SER NOSSO ANTIGO "HEAD"
+      new_head.next = self.head
+      self.head = new_head
+      self.size = self.size + 1
+  
+
+
   def __len__(self):
       return self.size
     
@@ -106,6 +118,8 @@ class Linked_List:
           pointer = pointer.next
       return True 
     raise ValueError(f"{elem} is not in list" )
+  
+  
 
 lista = Linked_List()
 lista.append(7)
