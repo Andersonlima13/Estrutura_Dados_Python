@@ -100,6 +100,9 @@ class Linked_List:
       node.next = pointer.next
       pointer.next = node
     self._size = self._size+1
+    
+    
+    
 
   
   def remove(self,elem):
@@ -116,12 +119,51 @@ class Linked_List:
             pointer.next = None
           ancestor = pointer
           pointer = pointer.next
+      self._size = self._size - 1 
       return True 
     raise ValueError(f"{elem} is not in list" )
   
+# RETORNA A LISTA NA REPRESENTAÇÃO DE NÓS
+
+  def __repr__(self):
+    string = ""
+    pointer = self.head
+    while(pointer):
+      string = string + str(pointer.data) + "->"
+      pointer = pointer.next
+    return string
   
+# MÉTODO STRING PARA VISUZALIZAR A LISTA
+ 
+  def __str__(self):
+    return self.__repr__()
+  
+  
+  
+# ESVAZIAR A LISTA
+  
+  def empty(self):
+    pass
+  
+# REMOVER DO INICIO
+  
+  def remove_init(self):
+    pass
+  
+# REMOVER DO FINAL
+
+  def remove_end(self):
+    pass
+
+# REMOVER TODAS AS OCORRENCIAS DE UM ELEMENTO 
+  
+  def remove_elem(self):
+    pass  
 
 lista = Linked_List()
 lista.append(7)
 lista.append(8)
-print(lista[3])
+lista.append(8)
+lista.append(8)
+lista.append_init(5)
+print(lista.__str__())
