@@ -157,30 +157,37 @@ class Linked_List:
     self.size - 1
     
 # REMOVER DO FINAL
-# PRIMEIRA OCORRENCIA == SE O UTLIMO ELEMENTO FOR O PRIMEIRO/ OU SEJA SELF.HEAD NAO TEM PROXIMO, OU SE SELF.HEAD TEM PROXIMO
+
+
+# PRIMEIRA OCORRENCIA : LISTA VAZIA
 
   def remove_end(self):
-    pointer = self.head
-    if pointer.next == None:
-      self.head = None
+    if not self.head:
+        raise ValueError("A lista está vazia, não é possível remover o último elemento.")
+    
+ # SE A CABEÇA FOR O ULTIMO ELEMENTO   
+    if not self.head.next:
+        self.head = None
     else:
-      pointer = self.head
-      while(pointer):
-          if pointer.next == None:
-          pointer = None
-      
+        ancestor = None
+        pointer = self.head
+        while pointer.next:
+            ancestor = pointer
+            pointer = pointer.next
+        ancestor.next = None
+    self.size -= 1
+    
       
 
 # REMOVER TODAS AS OCORRENCIAS DE UM ELEMENTO 
   
-  def remove_elem(self):
-    pass    
+  def remove_elem():
+    pass  
 
 lista = Linked_List()
 lista.append(7)
 lista.append(8)
 lista.append(9)
-lista.append(10)
 lista.remove_end()
 
 print(lista.__str__())
