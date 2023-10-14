@@ -148,22 +148,39 @@ class Linked_List:
 # REMOVER DO INICIO
   
   def remove_init(self):
-    pass
-  
+    if self.head:
+      pointer = self.head
+      prox = pointer.next
+      self.head = prox
+    else:
+      raise IndexError("the list is empty")
+    self.size - 1
+    
 # REMOVER DO FINAL
+# PRIMEIRA OCORRENCIA == SE O UTLIMO ELEMENTO FOR O PRIMEIRO/ OU SEJA SELF.HEAD NAO TEM PROXIMO, OU SE SELF.HEAD TEM PROXIMO
 
   def remove_end(self):
-    pass
+    pointer = self.head
+    if pointer.next == None:
+      self.head = None
+    else:
+      pointer = self.head
+      while(pointer):
+          if pointer.next == None:
+          pointer = None
+      
+      
 
 # REMOVER TODAS AS OCORRENCIAS DE UM ELEMENTO 
   
   def remove_elem(self):
-    pass  
+    pass    
 
 lista = Linked_List()
 lista.append(7)
 lista.append(8)
-lista.append(8)
-lista.append(8)
-lista.append_init(5)
+lista.append(9)
+lista.append(10)
+lista.remove_end()
+
 print(lista.__str__())
