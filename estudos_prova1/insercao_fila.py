@@ -1,13 +1,8 @@
 # fila encadeada 
 # sempre inserimos no final , e retiramos no começo
+from Node import Node
 
-class Node:
-    def __init__(self,data):
-        self.data = data
-        self.next = None
-
-
-class LinkedList:
+class Fila:
     def __init__(self):	
         self.first = None
         self.last = None
@@ -36,7 +31,7 @@ class LinkedList:
         return string
     
     
-fila = LinkedList()
+fila = Fila()
 fila.insert(5)
 fila.insert(6)
 fila.insert(7)
