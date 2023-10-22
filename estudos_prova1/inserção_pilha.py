@@ -1,5 +1,5 @@
 from Node import Node
-from remocao_fila import remover
+
 
 class Pilha:
     def __init__(self):

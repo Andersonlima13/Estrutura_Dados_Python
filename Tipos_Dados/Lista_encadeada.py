@@ -79,7 +79,7 @@ class Linked_List:
   def search(self, elem):
     pointer = self.head
     i = 0
-    while (pointer):  # equanto o pointer nao é vazio
+    while(pointer):  # equanto o pointer nao é vazio
       if pointer.data == elem:  # se o pointer for igual ao elemento buscado
         return i  # retornamos o elemento
       pointer = pointer.next

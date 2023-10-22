@@ -49,5 +49,4 @@ fila.insert("QUINTO ELEMENTO")
 fila.insert("SEXTO ELEMENTO")
 fila.remover()
 fila.remover()
-
 fila.imprimir()
