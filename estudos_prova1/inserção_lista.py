@@ -11,8 +11,8 @@ class LinkedList:
     def insert(self,elem,index):
         if index == 0:
             node = Node(elem)
-            node.next = self.first
-            self.first = node
+            node.next = self.first   # SE O USUARIO DESEJA INSERIR NA PRIMEIRA POSIÇÃO, APENAS INIDICAMOS QUE PROXIMO DO NÓ INSERIDO
+            self.first = node        # É O ATRINGO PRIMEIRO ELEMENTO 
         else:
             pointer = self.first
             for i in range(index-1):

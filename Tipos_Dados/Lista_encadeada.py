@@ -45,7 +45,7 @@ class Linked_List:
 
 
 # RETORNA A POSIÇÃO DO NÓ 
-  def _getnode(self,index):
+  def getnode(self,index):
     pointer = self.head
     for i in range(index):
       if pointer:
@@ -105,14 +105,14 @@ class Linked_List:
     
 
   
-  def remove(self,elem):
+  def remove(self,elem):   # SE A LISTA ESTIVER VAZIA , NÃO REMOVE
     if self.head == None:
       raise ValueError(f"{elem} is not in list")
-    elif self.head.data == elem:
+    elif self.head.data == elem:  # SE O ELEMENTO ESTIVER NA CABEÇA , ELA APENAS MOVE 1 CASA
       self.head = self.head.next
-    else:
-      ancestor = self.head
-      pointer = self.head
+    else:                             
+      ancestor = self.head            # ancestor vai ser o elemento atual que vc ta 
+      pointer = self.head       
       while(pointer):
           if pointer.data == elem:
             ancestor.next = pointer.next
@@ -219,6 +219,7 @@ lista.append(4)
 lista.append(4)
 lista.empty()
 lista.append(5)
+lista.getnode(0)
 
 
 print(lista.__str__())
