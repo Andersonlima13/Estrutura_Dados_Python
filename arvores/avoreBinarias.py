@@ -9,6 +9,8 @@ class Node:
     def __str__(self):
         return str(self.data)
 
+
+# percorrendo uma arvore
 class BinaryTree:
     def __init__(self,data=None):
         if data:
@@ -17,14 +19,27 @@ class BinaryTree:
         else:
             self.root = None
     
-    def simetric_traversal(self,node= None):
+    def in_Order(self,node=None):
         if node is None:
             node = self.root
         if node.left:
-            self.simetric_traversal(node.left)
+            self.in_Order(node.left)
         print(node)
         if node.right:
-            self.simetric_traversal(node.right)
+            self.in_Order(node.right)
+
+# PERCORRENDO EM PÓS ORDEM (OLHAMOS A ESQUERDA PRIMEIRO)
+# VOCE SÓ VISITA A RAIZ APÓS VISITAR PRIMEIRO A ESQUERDA , E DEPOIS A DIREITA
+
+    def pos_orderm(self,node=None):
+        if node is None:
+            node = self.root
+        if node.left:
+            self.pos_ordem(node.left)
+        if node.right:
+            self.pos_ordem(node.right)
+        print(node)        
+        
                 
         
         
