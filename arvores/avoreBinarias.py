@@ -12,8 +12,10 @@ class Node:
 
 # percorrendo uma arvore
 class BinaryTree:
-    def __init__(self,data=None):
-        if data:
+    def __init__(self,data=None, node=None):
+        if node:
+            self.root = node
+        elif data:
             node = Node(data)
             self.root = node
         else:
@@ -38,7 +40,38 @@ class BinaryTree:
             self.pos_ordem(node.left)
         if node.right:
             self.pos_ordem(node.right)
-        print(node)        
+        print(node)
+        
+
+# INSERÇÃO EM ARVORE DE BUSCA
+    
+class BinaySearch(BinaryTree):
+    def insert(self,value):
+        parent = None
+        i = self.root
+        while(i):
+            parent = i
+            if value < i.data:
+                i = i.left
+            else:
+                i = i.right
+        if parent is None:
+            self.root = Node(value)
+        elif value < parent.data:
+            parent.left = Node(value)
+        else:
+            parent.right = Node(value)    
+    
+    
+    def busca(self,value):
+        if node == 0:
+            node = self.root
+        if node is None or node.data == value:
+            return BinaryTree(node)
+        if value < node.data:
+            return self.busca(value, node.left)
+        return self.busca(value, node.right)
+    
         
                 
         
