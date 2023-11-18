@@ -73,7 +73,25 @@ class BinaySearch(BinaryTree):
         return self.busca(value, node.right)
     
     def remove(self,value,node=root):
-        if node == root
+        if node == root:
+            node = self.root
+        if node is None:
+            return node
+        if value < node.data:
+            node.left = self.remove(value, node.left)
+        elif value > node.data:
+            node.right = self.remove(value,node.right)
+        else:
+            if node.left is None:
+                return node.right
+            elif node.right is None:
+                return node.left
+            else:
+                substitute = self.min(node.right)
+                node.data = substitute
+                node.right = self.remove(substitute)
+        return node
+        
     
         
                 
