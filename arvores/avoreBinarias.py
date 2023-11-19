@@ -72,6 +72,13 @@ class BinaySearch(BinaryTree):
             return self.busca(value, node.left)
         return self.busca(value, node.right)
     
+    
+    def min(self,node):
+        atual = node
+        while atual.left:
+            atual = atual.left
+        return atual
+    
     def remove(self,value,node=root):
         if node == root:
             node = self.root
