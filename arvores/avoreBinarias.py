@@ -45,6 +45,10 @@ class BinaryTree:
 
 # INSERÇÃO EM ARVORE DE BUSCA
     
+# inserção em arvore binaria 
+# fazemos a verificaçao para encontrar um nó vazio ultilizando da recursao
+# depois verificar ambos os lados e fazer a adiçao do valor       
+    
 class BinaySearch(BinaryTree):
     def insert(self,value):
         parent = None
@@ -61,7 +65,14 @@ class BinaySearch(BinaryTree):
             parent.left = Node(value)
         else:
             parent.right = Node(value)    
-    
+
+
+# BUSCA EM ARVORE
+# começamos pela raiz da arvore
+# se o dado buscado for encontrado , retornamos a arvore inteira
+# se o valor for menor buscamos pela esquerda , retornamos e vamos na direita 
+
+
     
     def busca(self,value):
         if node == 0:
