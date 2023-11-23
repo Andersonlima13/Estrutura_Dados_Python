@@ -84,30 +84,31 @@ class BinaySearch(BinaryTree):
         return self.busca(value, node.right)
     
     
-    def min(self,node):
+    def min(self,node):   # LOGICA PARA ENCONTRAR O MINIMO _ > ENQUANTO EXISTIR NODE.LEFT , ELE DESCE ATÉ O VALOR MAIS BAIXO
         atual = node
         while atual.left:
             atual = atual.left
         return atual
     
+# REMOÇAO ARVORE    
     def remove(self,value,node=root):
-        if node == root:
-            node = self.root
-        if node is None:
+        if node == root:            # PRIMEIRA SITUAÇÃO -> SE O NÓ TIVER O VALOR DA RAIZ , ENTAO NODE COMEÇA A PARTIR DA RAIZ
+            node = self.root        
+        if node is None:             # SE NODE É NONE , ENTAO RETORNAMOS O NÓ
             return node
-        if value < node.data:
+        if value < node.data:                     # FAZEMOS A VERIFICAÇÃO PARA AMBOS OS LADOS
             node.left = self.remove(value, node.left)
         elif value > node.data:
             node.right = self.remove(value,node.right)
-        else:
-            if node.left is None:
-                return node.right
+        else:                                      # SE NÃO FOR NEM MAIOR NEM MENOR (IGUAL) AI SIM FAREMOS  A REMOÇÃO
+            if node.left is None:                  # PRIMEIRO VERIFICAMOS SE AMBOS OS LADOS POSSUEM O VALOR NONE E RETORNAMOS O OUTRO
+                return node.right     
             elif node.right is None:
                 return node.left
-            else:
-                substitute = self.min(node.right)
+            else:                                  # SE NENHUM VALOR NONE FOR ENCONTRADO, ENTAOBUSCAMOS O MENOR VALOR (PARA DIREITA)
+                substitute = self.min(node.right)   # NODE.DATA RECEBE ESSE MENOR VALOR
                 node.data = substitute
-                node.right = self.remove(substitute)
+                node.right = self.remove(substitute)  # QUE POR SUA VEZ É REMOVIDO
         return node
         
     
@@ -141,3 +142,55 @@ n2.right = n3
 tree.root = n2
 
 tree.simetric_traversal()
+
+    def min(self,node):   # LOGICA PARA ENCONTRAR O MINIMO _ > ENQUANTO EXISTIR NODE.LEFT , ELE DESCE ATÉ O VALOR MAIS BAIXO
+        atual = node       # atribuimos uma variavel 
+        while atual.left:  # enqual o lado esquerdo existir
+            atual = atual.left  # a variavel atuaçiza recebendo o novo valor (que vai sempre ser menor)
+        return atual             # retornamos 
+
+
+
+    def remover(self,node=root,value):
+        if node == root:
+            node = self.root
+        if node is None:
+            return node
+        else:
+            if value < node.data:
+                node.left = self.remove(value,self.left)
+            elif value > node.data:
+                node.right = self.remove(value,self.right)
+            else:
+                if node.left is None:
+                    return node.left
+                elif node.right is None:
+                    return node.right
+                else:
+                    substitue = self.min(node.right)
+                    node.data = substitue
+                    node.right = self.remover(node.right,substitue)
+                    
+    
+    def add(self):
+        self.root = self._add(self.root,value)
+    
+                
+    def _add(self,node,value):
+        if node is None:
+            return node(value)
+        else:       
+            if node < node.data:
+                node.left = self._add(node.left,value)
+            else:
+                node.right = self._add(node.rigt,value)
+            return node
+        
+    def busca(self,value):
+        if value == 0:
+            node = self.root
+        if node is None or node.data == value:
+            return node(value)
+        if node < node.data:
+            return self.busca(node.left,value)
+        return self.busca(node.right,value)
