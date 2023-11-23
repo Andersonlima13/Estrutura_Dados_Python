@@ -140,8 +140,12 @@ n2.left = n1
 n2.right = n3
 
 tree.root = n2
-
 tree.simetric_traversal()
+
+
+        # PROVAS
+
+
 
     def min(self,node):   # LOGICA PARA ENCONTRAR O MINIMO _ > ENQUANTO EXISTIR NODE.LEFT , ELE DESCE ATÉ O VALOR MAIS BAIXO
         atual = node       # atribuimos uma variavel 
