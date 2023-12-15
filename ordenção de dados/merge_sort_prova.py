@@ -16,9 +16,9 @@ def merge_sort(lista,inicio=0,fim=None):
 
 
 def merge(lista,inicio,meio,fim):
-    left = lista[inicio:meio]
+    left = lista[inicio:meio] # DIVIDIMOS A LISTA ENTRE ESQUERDA E DIREITA 
     right = lista[meio:fim]
-    top_left,top_right = 0,0
+    top_left,top_right = 0,0  # ATRIBUIMOS O VALOR DO TOPO INCIANDO COM "0" PARA AMBAS AS LISTAS
     for i in range(inicio,fim):
         if top_left >= len(left):
             lista[i] = right[top_right]
