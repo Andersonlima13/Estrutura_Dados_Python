@@ -21,19 +21,36 @@ def remove_pilha(self,top):
         pop.len = pop.len -1
         
         
-## fila / o primeiro a chegar é o primeiro a sair , o ultimo a entrar é o utlimo a sair a sair
+## fila / o primeiro a chegar é o primeiro a sair , o ultimo a entrar é o utlimo a sair 
 
-def inserir_fila(self,elem):
+def inserir_fila(self,elem):      
     node = Node(elem)
-    if self.first is None:
-        self.first = elem
-        self.last = self.first
+    if self.last is None:
+        self.last = node
     else:
-        pointer = self.first.next
-        while pointer:
-            if pointer.next is None:
-                self.last = pointer.next
-            
+        new_last = self.last.next
+        self.last = new_last
+    if self.first is None:
+        self.first = node
+        self._size + 1
+        
+def remover_fila(self):
+    if self.first is None:
+        raise IndexError("erro de index")
+    else:
+        new_first = self.first.next
+        self.first = None
+        new_first = self.first
+        
+        
+        
+        
+# listas 
+
+
+def inserir_lista(self,elem,index):
+    
+        
         
 
     
