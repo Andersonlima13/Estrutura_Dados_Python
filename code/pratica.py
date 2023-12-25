@@ -48,9 +48,26 @@ def remover_fila(self):
 # listas 
 
 
+def _getnode(self,index):
+    pointer = self.head
+    for i in range(index):    # desse modo , pointer caminha da primeira posição (cabeça)
+        if pointer:           # até o index desejado pelo usuario, enquanto pointer haver um "next"
+            pointer = pointer.next
+        else:
+            raise IndexError("Out of range")
+    return pointer
+
+
 def inserir_lista(self,elem,index):
-    
-        
+    node = node(elem)
+    if self.index == 0:
+        node.next = self.head
+        self.head = node
+    else:
+        pointer = self._getnode(index-1)  # pointer é retornado aqui, uma posição antes
+        node.next = pointer.next
+        pointer.next = node
+    self._size += 1
         
 
     
