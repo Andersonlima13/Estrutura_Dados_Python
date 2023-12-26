@@ -55,7 +55,7 @@ def _getnode(self,index):
             pointer = pointer.next
         else:
             raise IndexError("Out of range")
-    return pointer
+    return pointer                       # pratica na linha 58
 
 
 def inserir_lista(self,elem,index):
@@ -65,7 +65,7 @@ def inserir_lista(self,elem,index):
         self.head = node
     else:
         pointer = self._getnode(index-1)  # pointer é retornado aqui, uma posição antes
-        node.next = pointer.next
+        node.next = pointer.next      # pratica na linjha 68/ 69 
         pointer.next = node
     self._size += 1
         
