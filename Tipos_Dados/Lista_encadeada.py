@@ -113,11 +113,11 @@ class Linked_List:
     else:                             
       ancestor = self.head            # ancestor vai ser o elemento atual que vc ta 
       pointer = self.head       
-      while(pointer):
-          if pointer.data == elem:
-            ancestor.next = pointer.next
-            pointer.next = None
-          ancestor = pointer
+      while(pointer):               
+          if pointer.data == elem:   # pratica 117 -> lembrar do data 
+            ancestor.next = pointer.next  # pratica 118 , ancestor é igual a pointer
+            pointer.next = None           # 119  pratica  ligando o ancestor ao pointer
+          ancestor = pointer              # 120 pratica e avançando o pointer
           pointer = pointer.next
       self._size = self._size - 1 
       return True 
