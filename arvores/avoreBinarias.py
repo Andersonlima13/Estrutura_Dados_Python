@@ -108,7 +108,7 @@ class BinaySearch(BinaryTree):
             else:                                  # SE NENHUM VALOR NONE FOR ENCONTRADO, ENTAOBUSCAMOS O MENOR VALOR (PARA DIREITA)
                 substitute = self.min(node.right)   # NODE.DATA RECEBE ESSE MENOR VALOR
                 node.data = substitute
-                node.right = self.remove(substitute)  # QUE POR SUA VEZ É REMOVIDO
+                node.right = self.remove(substitute,node.right)  # QUE POR SUA VEZ É REMOVIDO
         return node
         
     
